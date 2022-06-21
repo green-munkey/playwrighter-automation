@@ -7,6 +7,8 @@ How to run:
    sample:  
       CI=1
       ENVIROMENT_URL==https://dev.trutik.io
+      
+      
 | Key  | Value |
 | --------  | -------- |
 | CI=      | 1 |
