@@ -5,7 +5,7 @@ How to run:
    You will need the following vairables:
 
    sample:  
-      CI=1
+      CI=1 <br/>
       ENVIROMENT_URL==https://dev.trutik.io
       
       
