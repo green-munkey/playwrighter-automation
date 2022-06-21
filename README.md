@@ -1,7 +1,12 @@
-1. npm ci
-2. create .env file on the root
-   Will need the following variables:
+How to run:
 
+1. run npm ci on root folder
+2. create a .env file on the root
+   You will need the following vairables:
+
+   sample:  
+      CI=1
+      ENVIROMENT_URL==https://dev.trutik.io
 | Key  | Value |
 | --------  | -------- |
 | CI=      | 1 |
