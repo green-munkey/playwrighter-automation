@@ -3,7 +3,7 @@
    Will need the following variables:
 
 CI=1
-ENVIROMENT_URL=https://dev.trutik.io # comment
+ENVIROMENT_URL=https://dev.trutik.io
 ENVIROMENT_USERNAME=
 ENVIROMENT_PASSWORD=
 
