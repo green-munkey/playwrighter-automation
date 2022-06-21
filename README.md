@@ -1,13 +1,21 @@
-1. npm ci
-2. create .env file on the root
-   Will need the following variables:
+How to run:
 
-CI=1
-ENVIROMENT_URL=https://dev.trutik.io # comment
-ENVIROMENT_USERNAME=
-ENVIROMENT_PASSWORD=
+1. run npm ci on root folder
+2. create a .env file on the root
+   You will need the following vairables:
 
-ADMIN_TENANT_IMPERSONATE=ENVIROTECHNWENVIROTECHNWCarrier 1/3/2022
-ADMIN_TENANT_IMPERSONATE_USER=Useradmin admin (ENVIROTECHNW@trutik.com)
+   sample:  
+      CI=1 <br/>
+      ENVIROMENT_URL==https://dev.trutik.io
+      
+      
+| Key  | Value |
+| --------  | -------- |
+| CI=      | 1 |
+| ENVIROMENT_URL=      |  |
+| ENVIROMENT_USERNAME=      |  |
+| ENVIROMENT_PASSWORD=     |  |
+| ADMIN_TENANT_IMPERSONATE=     |  |
+| ADMIN_TENANT_IMPERSONATE_USER=     |  |
 
 3. npx playwright test login-test.spec.ts --headed
