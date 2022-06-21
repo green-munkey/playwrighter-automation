@@ -1,0 +1,21 @@
+{
+  "name": "trutikinc.automation.web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "ci": "npm ci",
+    "test": "npx ci && playwright npx playwright test login-test.spec.ts",
+    "test-headed": "npx ci && npx playwright test login-test.spec.ts --headed && npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.20.2",
+    "allure-playwright": "^2.0.0-beta.15"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0"
+  }
+}
