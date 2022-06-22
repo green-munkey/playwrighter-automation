@@ -8,7 +8,7 @@ test.describe("Run basic E2E TruTik App site ", async () => {
 
     test("Login as a Tenant", async ({ page, isMobile }, testInfo) => {
 
-        const loginPage = new LoginPage(page, process.env.ENVIROMENT_URL, process.env.ENVIROMENT_USERNAME, process.env.ENVIROMENT_PASSWORD);
+        const loginPage = new LoginPage(page, process.env.ENVIROMENT_USERNAME, process.env.ADMIN_TENANT_IMPERSONATE_USER);
         await loginPage.GoToLoginPage();
         await loginPage.FillLogin(testInfo);
         await loginPage.ClickLogin(testInfo);

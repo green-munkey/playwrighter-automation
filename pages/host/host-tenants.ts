@@ -3,36 +3,45 @@
 import { expect, Page, TestInfo } from '@playwright/test';
 
 export class HostTenant {
-    readonly page: Page;
+    readonly _page: Page;
+    readonly _adminTenantImpersonate: string;
+    readonly _adminTenantImpersonateUser: string;
 
-    constructor(page: Page) {
-        this.page = page;
+    constructor(page: Page, adminTenantImpersonate: string, adminTenantImpersonateUser: string) {
+        this._page = page;
+        this._adminTenantImpersonate = adminTenantImpersonate;
+        this._adminTenantImpersonateUser = adminTenantImpersonateUser;
     }
     public async HostDashboardLoaded(testInfo: TestInfo) {
 
-        await expect(this.page.locator('text=Tenancy name')).toBeVisible();
+        await expect(this._page.locator('text=Tenancy name')).toBeVisible();
 
-        testInfo.annotations.push({ type: "info", description: "Tenant Dashboard" });
-        const screenshotDashBoardBefore = await this.page.screenshot({ path: `./screenshots/${testInfo.project.name}_${testInfo.title}.png` });
+        testInfo.annotations.push({ type: "info", description: "Host Tenant Dashboard" });
+        const screenshotDashBoardBefore = await this._page.screenshot({ path: `./screenshots/${testInfo.project.name}_${testInfo.title}.png` });
         await testInfo.attach('screenshot', { body: screenshotDashBoardBefore, contentType: 'image/png' });
 
     }
 
     public async ImpersonateTenant(testInfo: TestInfo) {
+        let selector = `text=${this._adminTenantImpersonate} >> [aria-label="Impersonate"]`;
+        console.log(selector);
 
-        await this.page.locator('text=ENVIROTECHNWENVIROTECHNWCarrier 1/3/2022 >> [aria-label="Impersonate"]').click();
+        await this._page.locator(`${selector}`).click();
 
         testInfo.annotations.push({ type: "info", description: "Fill Form For Admin" });
-        const screenshotLogin = await this.page.screenshot();
+        const screenshotLogin = await this._page.screenshot();
         await testInfo.attach('screenshot', { body: screenshotLogin, contentType: 'image/png' });
 
     }
     public async LoginAsUser(testInfo: TestInfo) {
+        let selector = `text=${this._adminTenantImpersonateUser} >> button`;
+        console.log(selector);
         await Promise.all([
-            this.page.waitForNavigation(
+            this._page.waitForNavigation(
                 { url: `${process.env.ENVIROMENT_URL}/app/dashboard` }
             ),
-            this.page.locator('text=Useradmin admin (ENVIROTECHNW@trutik.com) >> button').click()
+
+            this._page.locator(`${selector}`).first().click()
         ]);
     }
 }

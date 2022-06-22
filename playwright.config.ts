@@ -13,18 +13,18 @@ require('dotenv').config();
 const config: PlaywrightTestConfig = {
   testDir: './tests',
   /* Maximum time one test can run for. */
-  timeout: 15000,
+  timeout: 30000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 8000
+    timeout: 10000
   },
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 1,
+  retries: process.env.CI ? 1 : 1,
   /* Opt out of parallel tests on CI. */
   //workers: process.env.CI ? 1 : undefined,
   workers: 1,
@@ -52,13 +52,13 @@ const config: PlaywrightTestConfig = {
       },
     },
 
-    /* Test against mobile viewports. */
+    /* Test against mobile viewports.
     {
       name: 'Mobile Chrome',
       use: {
         ...devices['Pixel 5'],
       },
-    },
+    }, */
   ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
